@@ -25,7 +25,16 @@ public class GradebookServiceMQ implements GradebookService {
 	@Autowired
 	EnrollmentRepository enrollmentRepository;
 	
+	public GradebookServiceMQ() {
+	    System.out.println("MQ gradebook service ");
+	}
+	
 	Queue gradebookQueue = new Queue("gradebook-queue", true);
+	
+	@Bean
+	Queue createQueue() {
+		return new Queue("registration-queue");
+	}
 
 	// send message to grade book service about new student enrollment in course
 	@Override
