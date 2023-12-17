@@ -2,14 +2,16 @@ package com.cst438.domain;
 
 import java.sql.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 @Entity
 public class Course {
 	
 	@Id
 	private int course_id;
+	@Column(name="year1")
 	private int year;
 	private String semester;
 	private int section;
@@ -19,6 +21,7 @@ public class Course {
 	private String room;
 	private String instructor;
 	private Date start;
+	@Column(name="end1")
 	private Date end;
 	
 	public Course() {
